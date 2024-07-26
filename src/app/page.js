@@ -1,34 +1,32 @@
 import Image from "next/image";
 import Chicken from "@/components/chicken/Chicken";
+import Card from "@/components/card/Card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPython,
-  faReact,
-  faLinkedin,
-  faJs,
-  faAws,
-} from "@fortawesome/free-brands-svg-icons";
+import {faPython, faReact,faLinkedin,faJs,faAws, faGithubSquare,} from "@fortawesome/free-brands-svg-icons";
 import { Typewriter } from "nextjs-simple-typewriter";
+import './globals.css';
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex">
+    <div id="id1" className="flex">
       <div className="flex flex-1 flex-col gap-12">
         <div className="flex flex-col gap-28 min-h-[80vh] mt-36">
           <div className="flex">
-            <h1 className="text-8xl font-bold">hey i&rsquo;m kevin!</h1>
+            <h1 className="text-8xl font-bold font-satoshi">hey i&rsquo;m kevin!</h1>
           </div>
 
           <div className="flex">
-            <span className=" text-3xl text-md text-center">
+            <span className=" font-satoshi text-3xl text-md text-center">
               <Typewriter
                 words={[
                   "aspiring fullstack software developer",
+                  "SWE fellow @ HeadstarterAI",
                   "learning more about cloud computing",
                   "trying to center a div",
                   "fried chicken lover",
                 ]}
-                loop={20}
+                loop={100}
                 cursor
                 cursorStyle="_"
                 typeSpeed={70}
@@ -38,19 +36,33 @@ export default function Home() {
             </span>
           </div>
 
-          <div className="flex gap-5">
-            <button className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 p-3 min-w-[120px] cursor-pointer border-none rounded-md bg-blue-500 text-white hover:bg-blue-700 font-bold">
-              Contact me
-            </button>
-            <button className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 p-3 min-w-[120px] cursor-pointer border-none rounded-md bg-blue-500 text-white hover:bg-blue-700 font-bold">
-              Resume
-            </button>
+          <div className="flex gap-10">
+            <Link
+              href={"https://www.linkedin.com/in/kevin-cao7/"}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon
+                icon={faLinkedin}
+                className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 h-[40px] text-blue-500 hover:text-blue-700"
+              />
+            </Link>
+            <Link
+              href={"https://github.com/klevun7"}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon
+                icon={faGithubSquare}
+                className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 h-[40px] text-slate-800 hover:text-black"
+              />
+            </Link>
           </div>
         </div>
 
-        <div className="flex gap-10 flex-col mb-11">
+        <div id="id2" className="flex gap-10 flex-col">
           <div className="flex flex-col items-center">
-            <h1 className="text-4xl font-bold">About Me</h1>
+            <h1 className=" font-satoshi text-4xl font-bold">About Me</h1>
           </div>
 
           <div className="flex justify-evenly">
@@ -64,7 +76,7 @@ export default function Home() {
               />
             </div>
             <div className="w-1/2">
-              <p className="text-3xl">
+              <p className="text-3xl font-satoshi">
                 I&apos;m a rising senior at the University of California,
                 Riverside majoring in Computer Science with Business
                 Applications. I&apos;m passionate about fullstack development
@@ -72,12 +84,22 @@ export default function Home() {
                 and cloud computing! In my free time I enjoy cooking and trying
                 out new restaurants.
               </p>
+
+              <div className=" flex mt-10 gap-10 ">
+                <button className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 p-3 min-w-[120px] cursor-pointer border-none rounded-md bg-slate-800 text-white hover:bg-blue-700 font-satoshi">
+                  Resume
+                </button>
+                <button className=" font-satoshi transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 p-3 min-w-[120px] cursor-pointer border-none rounded-md bg-slate-800 text-white hover:bg-blue-700 ">
+                  Contact me
+                </button>
+              </div>
             </div>
+
           </div>
         </div>
 
-        <div className="flex flex-col items-center">
-          <h1 className="text-4xl font-bold">Skills</h1>
+        <div id="id3" className="flex flex-col items-center">
+          <h1 className="text-4xl font-bold font-satoshi">Skills</h1>
         </div>
 
         <div className="grid grid-rows-2 grid-flow-col gap-10 justify-evenly items-center">
@@ -127,9 +149,13 @@ export default function Home() {
           />
         </div>
 
+        <div id="id4"></div>
         <div className="flex items-center flex-col m-8 p-8">
           <h1 className="text-4xl font-bold">Projects</h1>
         </div>
+  
+        <Card />
+
       </div>
       <div className="flex">
         <Chicken />

@@ -7,30 +7,23 @@ import { motion } from "framer-motion";
 const Navbar = () => {
   return (
     <nav>
-      <div className="flex justify-between h-[100px] items-center text-slate-500 font-bold hover:text-black">
+      <div className="flex justify-between h-[100px] items-center text-black font-bold font-satoshi">
         <Link href="/">kevincao</Link>
-        <div className="flex gap-2">
-          <Link
-            href={"https://www.linkedin.com/in/kevin-cao7/"}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FontAwesomeIcon
-              icon={faLinkedin}
-              className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 h-[40px] text-blue-500 hover:text-blue-700"
-            />
+         <ul className="flex flex-row gap-5 items">
+          <Link href = "#id1">
+          <div className=" hover:underline">home</div>
           </Link>
-          <Link
-            href={"https://github.com/klevun7"}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FontAwesomeIcon
-              icon={faGithubSquare}
-              className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 h-[40px] text-slate-800 hover:text-black"
-            />
+          <Link href = "#id2">
+          <div className=" hover:underline">about</div>
           </Link>
-        </div>
+          <Link href = "#id3">
+          <div className=" hover:underline">skills</div>
+          </Link>
+          <Link href = "#id4">
+          <div className=" hover:underline">projects</div>
+          </Link>
+         </ul>
+        
       </div>
     </nav>
   );

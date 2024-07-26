@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 const Navbar = () => {
     return (
         <nav>
-            <div className='flex justify-between h-[100px] items-center'>
+            <div className='flex justify-between h-[100px] items-center text-slate-500 font-bold hover:text-black'>
                 <Link href = '/'>kevincao</Link>
                 <div className='flex gap-2'>
                     <Link href= {"https://www.linkedin.com/in/kevin-cao7/"} target="_blank" rel="noopener noreferrer">

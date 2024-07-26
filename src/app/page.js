@@ -9,7 +9,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div id="id1" className="flex">
+    <div id="home" className="flex">
       <div className="flex flex-1 flex-col gap-12">
         <div className="flex flex-col gap-28 min-h-[80vh] mt-36">
           <div className="flex">
@@ -60,7 +60,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div id="id2" className="flex gap-10 flex-col">
+        <div id="about" className="flex gap-10 flex-col">
           <div className="flex flex-col items-center">
             <h1 className=" font-satoshi text-4xl font-bold">About Me</h1>
           </div>
@@ -71,7 +71,7 @@ export default function Home() {
                 src={"/image.JPG"}
                 width={300}
                 height={300}
-                className="rounded-lg flex"
+                className="rounded-lg xs:hidden sm:hidden md:hidden lg:block xl:block"
                 alt=""
               />
             </div>
@@ -98,7 +98,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div id="id3" className="flex flex-col items-center">
+        <div id="skills" className="flex flex-col items-center">
           <h1 className="text-4xl font-bold font-satoshi">Skills</h1>
         </div>
 
@@ -149,9 +149,9 @@ export default function Home() {
           />
         </div>
 
-        <div id="id4"></div>
+        <div id="projects"></div>
         <div className="flex items-center flex-col m-8 p-8">
-          <h1 className="text-4xl font-bold">Projects</h1>
+          <h1 className="text-4xl font-bold font-satoshi">Projects</h1>
         </div>
   
         <Card />

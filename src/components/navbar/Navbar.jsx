@@ -10,16 +10,16 @@ const Navbar = () => {
       <div className="flex justify-between h-[100px] items-center text-black font-bold font-satoshi">
         <Link href="/">kevincao</Link>
          <ul className="flex flex-row gap-5 items">
-          <Link href = "#id1">
-          <div className=" hover:underline">home</div>
+          <Link href = "#home">
+          <div className=" hover:underline ">home</div>
           </Link>
-          <Link href = "#id2">
+          <Link href = "#about">
           <div className=" hover:underline">about</div>
           </Link>
-          <Link href = "#id3">
+          <Link href = "#skills">
           <div className=" hover:underline">skills</div>
           </Link>
-          <Link href = "#id4">
+          <Link href = "#projects">
           <div className=" hover:underline">projects</div>
           </Link>
          </ul>

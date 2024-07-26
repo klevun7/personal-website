@@ -1,10 +1,13 @@
 "use client";
-import { OrbitControls, useGLTF } from "@react-three/drei";
+import { Suspense } from 'react';
+import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
+import dynamic from 'next/dynamic';
+
+const Model = dynamic(() => import('./Model'), { suspense: true });
+
 
 const Chicken = () => {
-  const chicken = useGLTF("/chicken/scene.gltf");
-
   return (
     <div style={{ width: "100%", height: "100vh", position: "relative" }}>
       <Canvas
@@ -19,21 +22,19 @@ const Chicken = () => {
           transform: "translateY(-50%)",
         }}
       >
-        <OrbitControls
-          autoRotate
-          enableZoom={false}
-          maxPolarAngle={Math.PI / 2}
-          minPolarAngle={Math.PI / 2}
-          enablePan={false}
-        />
-        <primitive object={chicken.scene} scale={10} />
+        <Suspense fallback={null}>
+          <Model />
+          <OrbitControls
+            autoRotate
+            enableZoom={false}
+            maxPolarAngle={Math.PI / 2}
+            minPolarAngle={Math.PI / 2}
+            enablePan={false}
+          />
+        </Suspense>
       </Canvas>
     </div>
   );
 };
+
 export default Chicken;
-/*
-     <div className="flex items-center justify-center">
-        <Chicken />
-      </div>
-*/

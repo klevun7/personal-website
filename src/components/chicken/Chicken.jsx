@@ -3,7 +3,7 @@ import { OrbitControls, useGLTF } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 
 const Chicken = () => {
-  const chicken = useGLTF("./chicken/scene.gltf");
+  const chicken = useGLTF("/chicken/scene.gltf");
 
   return (
     <div style={{ width: "100%", height: "100vh", position: "relative" }}>

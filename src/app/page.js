@@ -1,10 +1,17 @@
 import Image from "next/image";
 import Chicken from "@/components/chicken/Chicken";
-import Card from "@/components/card/Card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faPython, faReact,faLinkedin,faJs,faAws, faGithubSquare,} from "@fortawesome/free-brands-svg-icons";
+import {
+  faPython,
+  faReact,
+  faLinkedin,
+  faJs,
+  faAws,
+  faGithubSquare,
+} from "@fortawesome/free-brands-svg-icons";
 import { Typewriter } from "nextjs-simple-typewriter";
-import './globals.css';
+import ProjectCard from "@/components/projectCard/projectCard";
+import "./globals.css";
 import Link from "next/link";
 
 export default function Home() {
@@ -13,7 +20,9 @@ export default function Home() {
       <div className="flex flex-1 flex-col gap-12">
         <div className="flex flex-col gap-28 min-h-[80vh] mt-36">
           <div className="flex">
-            <h1 className="text-8xl font-bold font-satoshi">hey i&rsquo;m kevin!</h1>
+            <h1 className="text-8xl font-bold font-satoshi">
+              hey i&rsquo;m kevin!
+            </h1>
           </div>
 
           <div className="flex">
@@ -86,15 +95,19 @@ export default function Home() {
               </p>
 
               <div className=" flex mt-10 gap-10 ">
-                <button className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 p-3 min-w-[120px] cursor-pointer border-none rounded-md bg-slate-800 text-white hover:bg-blue-700 font-satoshi">
-                  Resume
-                </button>
-                <button className=" font-satoshi transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 p-3 min-w-[120px] cursor-pointer border-none rounded-md bg-slate-800 text-white hover:bg-blue-700 ">
+                <Link href={"/resume.pdf"} target="_blank">
+                  <button className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 p-3 min-w-[120px] cursor-pointer border-none rounded-md bg-slate-800 text-white hover:bg-blue-700 font-satoshi">
+                    Resume
+                  </button>
+                </Link>
+                <a
+                  href="mailto:kevincao5558@gmail.com"
+                  className="inline-block font-satoshi transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 p-3 min-w-[120px] cursor-pointer border-none rounded-md bg-slate-800 text-white hover:bg-blue-700 text-center"
+                >
                   Contact me
-                </button>
+                </a>
               </div>
             </div>
-
           </div>
         </div>
 
@@ -152,10 +165,31 @@ export default function Home() {
         <div id="projects"></div>
         <div className="flex items-center flex-col m-8 p-8">
           <h1 className="text-4xl font-bold font-satoshi">Projects</h1>
+          <ProjectCard
+            projectUrl={"https://github.com/klevun7/Style-Swiper"}
+            title={"StyleSwiper"}
+            imageUrl={"/styleswiper.png"}
+            description={
+              "A clothing discovery app built with Nextjs and Firebase. Built with account management and personalized tinder-like swiping to discover new fashion trends"
+            }
+          />
+          <ProjectCard
+            projectUrl={"https://github.com/klevun7/Style-Swiper"}
+            title={"MatchaNotes"}
+            imageUrl={"/matchanotes.png"}
+            description={
+              "A clothing discovery app built with Nextjs and Firebase. Built with account management and personalized tinder-like swiping to discover new fashion trends"
+            }
+          />
+          <ProjectCard
+            projectUrl={"https://github.com/klevun7/Style-Swiper"}
+            title={"StyleSwiper"}
+            imageUrl={"/styleswiper.png"}
+            description={
+              "A clothing discovery app built with Nextjs and Firebase. Built with account management and personalized tinder-like swiping to discover new fashion trends"
+            }
+          />
         </div>
-  
-        <Card />
-
       </div>
       <div className="flex">
         <Chicken />

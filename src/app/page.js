@@ -178,7 +178,7 @@ export default function Home() {
             title={"MatchaNotes"}
             imageUrl={"/matchanotes.png"}
             description={
-              "A clothing discovery app built with Nextjs and Firebase. Built with account management and personalized tinder-like swiping to discover new fashion trends"
+              "A fullstack application allowing users to discover different matcha brands and learn about the unique flavor profiles"
             }
           />
         </div>

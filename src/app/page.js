@@ -33,7 +33,7 @@ export default function Home() {
                   "learning more about cloud computing",
                   "trying to center a div",
                   "fried chicken lover",
-                  "currently learning Go"
+                  "currently learning Go",
                 ]}
                 loop={100}
                 cursor
@@ -94,12 +94,15 @@ export default function Home() {
                 out new restaurants.
               </p>
 
-              <div className=" flex mt-10 gap-10 ">
-                <Link href={"/resume.pdf"} target="_blank">
-                  <button className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 p-3 min-w-[120px] cursor-pointer border-none rounded-md bg-slate-800 text-white hover:bg-blue-700 font-satoshi">
-                    Resume
-                  </button>
-                </Link>
+              <div className="flex mt-10 gap-10">
+                <a
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 p-3 min-w-[120px] cursor-pointer border-none rounded-md bg-slate-800 text-white hover:bg-blue-700 font-satoshi text-center"
+                >
+                  Resume
+                </a>
                 <a
                   href="mailto:kevincao5558@gmail.com"
                   className="inline-block font-satoshi transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 p-3 min-w-[120px] cursor-pointer border-none rounded-md bg-slate-800 text-white hover:bg-blue-700 text-center"

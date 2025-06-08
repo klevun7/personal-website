@@ -30,10 +30,10 @@ export default function Home() {
               <Typewriter
                 words={[
                   "aspiring fullstack software developer",
-                  "SWE fellow @ HeadstarterAI",
                   "learning more about cloud computing",
                   "trying to center a div",
                   "fried chicken lover",
+                  "currently learning Go"
                 ]}
                 loop={100}
                 cursor
@@ -77,7 +77,7 @@ export default function Home() {
           <div className="flex justify-evenly">
             <div className="flex">
               <Image
-                src={"/image.JPG"}
+                src={"/kevin.jpg"}
                 width={300}
                 height={300}
                 className="rounded-lg xs:hidden sm:hidden md:hidden lg:block xl:block"

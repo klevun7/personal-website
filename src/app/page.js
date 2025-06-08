@@ -181,14 +181,6 @@ export default function Home() {
               "A clothing discovery app built with Nextjs and Firebase. Built with account management and personalized tinder-like swiping to discover new fashion trends"
             }
           />
-          <ProjectCard
-            projectUrl={"https://github.com/klevun7/Style-Swiper"}
-            title={"StyleSwiper"}
-            imageUrl={"/styleswiper.png"}
-            description={
-              "A clothing discovery app built with Nextjs and Firebase. Built with account management and personalized tinder-like swiping to discover new fashion trends"
-            }
-          />
         </div>
       </div>
       <div className="flex">

@@ -186,7 +186,7 @@ export default function Home() {
           />
         </div>
       </div>
-      <div className="flex">
+      <div className="lg:block hidden">
         <Chicken />
       </div>
     </div>

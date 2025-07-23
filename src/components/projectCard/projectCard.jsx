@@ -22,7 +22,7 @@ const ProjectCard = ({ title, description, imageUrl, projectUrl }) => {
           width={800}
           height={800}
           objectFit="fill"
-          className="transition-opacity duration-300"
+          className="object-cover transition-opacity duration-300"
           style={{ opacity: isHovered ? "0.2" : "1" }}
         />
 

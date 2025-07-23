@@ -86,11 +86,10 @@ export default function Home() {
             </div>
             <div className="w-1/2">
               <p className="text-3xl font-satoshi">
-                I&apos;m a rising senior at the University of California,
-                Riverside majoring in Computer Science with Business
-                Applications. I&apos;m passionate about fullstack development
+                I&apos;m a recent Computer Science and Business graduate from the University of California,
+                Riverside. I&apos;m passionate about fullstack development
                 and I am hoping to expand my knowledge on distributed systems
-                and cloud computing! In my free time I enjoy cooking and trying
+                and cloud computing. In my free time I enjoy cooking and trying
                 out new restaurants.
               </p>
 
@@ -177,11 +176,19 @@ export default function Home() {
             }
           />
           <ProjectCard
-            projectUrl={"https://github.com/klevun7/Style-Swiper"}
+            projectUrl={"https://github.com/klevun7/matchanotes"}
             title={"MatchaNotes"}
-            imageUrl={"/matchanotes.png"}
+            imageUrl={"/matchanotes2.png"}
             description={
               "A fullstack application allowing users to discover different matcha brands and learn about the unique flavor profiles"
+            }
+          />
+          <ProjectCard
+            projectUrl={"https://github.com/klevun7/devlink"}
+            title={"DevLink"}
+            imageUrl={"/white.jpg"}
+            description={
+              "A platform for new-grads to find job opportunities as soon as they are posted. Built with Go and AWS SES"
             }
           />
         </div>

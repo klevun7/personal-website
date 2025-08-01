@@ -7,9 +7,9 @@ import { motion } from "framer-motion";
 const Navbar = () => {
   return (
     <nav>
-      <div className="flex justify-between h-[100px] items-center text-black font-bold font-satoshi">
-        <Link href="/">kevincao</Link>
-         <ul className="flex flex-row gap-5 items">
+      <div className="flex justify-center h-[100px] items-center text-black font-bold font-satoshi">
+     
+         <ul className="flex flex-row gap-5 items-center">
           <Link href = "#home">
           <div className=" hover:underline ">home</div>
           </Link>

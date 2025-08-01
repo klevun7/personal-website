@@ -123,7 +123,6 @@ export default function Home() {
         <div id="projects"></div>
         <div className=" lg:m-8 lg:p-4">
           <h1 className="text-3xl lg:text-4xl font-bold font-satoshi text-center mb-8">Projects</h1>
-          {/* The change is here: from "grid" to "flex flex-col" */}
           <div className="mt-14 flex flex-col gap-8 items-center px-4">
             <ProjectCard
               projectUrl={"https://github.com/klevun7/Style-Swiper"}
@@ -146,7 +145,7 @@ export default function Home() {
               title={"DevLink"}
               imageUrl={"/sysdia.png"}
               description={
-                "A platform for new-grads to find job opportunities as soon as they are posted. Built with Go and AWS SES for email notifications. Python and BeautifulSoup for web scraping job postings. with a React frontend and SQLite database."
+                "A platform for new-grads to find job opportunities as soon as they are posted. Built with Go and AWS SES for email notifications."
               }
             />
             <ProjectCard
@@ -162,7 +161,7 @@ export default function Home() {
               title={"NBA PyElasticSearch"}
               imageUrl={"/pyes.png"}
               description={
-                "Application implementing search functionality for NBA Data using Elasticsearch. Implemented data indexing Built with Python and Flask, this app allows users to search for players, teams, and game statistics efficiently."
+                "Built with Python and Flask, utilizing Elasticsearch for efficient data retrieval and search capabilities on NBA data."
               }
             />
           </div>

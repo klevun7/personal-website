@@ -9,7 +9,7 @@ const ProjectCard = ({ title, description, imageUrl, projectUrl }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-<div
+    <div
       className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer transition ease-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -25,18 +25,19 @@ const ProjectCard = ({ title, description, imageUrl, projectUrl }) => {
         />
 
         <div className="absolute inset-0 flex flex-col justify-between p-8 bg-gradient-to-t from-black/70 to-transparent">
-          <h3 className="text-lg font-extrabold text-white font-satoshi">
+          <h3 className="text-xl font-extrabold text-white font-satoshi sm:text-md md:text-lg">
             {isHovered ? title : null}
           </h3>
 
           <div
-            className={`transition-all duration-300 ${
-              isHovered
+            className={`transition-all duration-300 ${isHovered
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-4"
-            }`}
+              }`}
           >
-            <p className="text-white text-md font-satoshi">{description}</p>
+            <p className="text-white text-xs font-satoshi sm:text-sm md:text-md">
+              {description}
+            </p>
             <div className="flex justify-end">
               <Link
                 href={projectUrl}

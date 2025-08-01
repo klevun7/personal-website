@@ -77,17 +77,10 @@ const Skills = () => {
           className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 h-[50px] lg:h-[60px] text-black"
         />
         <Image
-<<<<<<< Updated upstream
-          src={"/icons/html5.svg"}
-          width={50}
-          height={50}
-          alt="html5"
-=======
           src={"/icons/redis.svg"}
           width={50}
           height={50}
           alt="Redis"
->>>>>>> Stashed changes
           className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 h-[50px] lg:h-[60px] text-black"
         />
         <Image

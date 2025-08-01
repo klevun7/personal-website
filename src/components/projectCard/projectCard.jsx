@@ -25,7 +25,7 @@ const ProjectCard = ({ title, description, imageUrl, projectUrl }) => {
         />
 
         <div className="absolute inset-0 flex flex-col justify-between p-8 bg-gradient-to-t from-black/70 to-transparent">
-          <h3 className="text-xl font-extrabold text-white font-satoshi sm:text-md md:text-lg">
+          <h3 className="text-xl font-extrabold text-slate-700 font-satoshi sm:text-md md:text-lg">
             {isHovered ? title : null}
           </h3>
 

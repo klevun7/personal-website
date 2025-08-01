@@ -129,7 +129,7 @@ export default function Home() {
               title={"StyleSwiper"}
               imageUrl={"/styleswiper.png"}
               description={
-                "A clothing discovery app built with Nextjs and Firebase. Built with account management and personalized tinder-like swiping to discover new fashion trends"
+                "A clothing discovery app with account management and personalized tinder-like swiping to discover new fashion trends"
               }
             />
             <ProjectCard
@@ -137,7 +137,7 @@ export default function Home() {
               title={"MatchaNotes"}
               imageUrl={"/matchanotes2.png"}
               description={
-                "A full-stack web app for discovering, reviewing, and searching matcha powders, featuring full-text search, user tasting notes, and curated product details."
+                "A full-stack web app for discovering, reviewing, and searching matcha powders, featuring full-text search and user authentication."
               }
             />
             <ProjectCard

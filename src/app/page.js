@@ -22,7 +22,7 @@ export default function Home() {
         {/* Hero Section */}
         <div className="flex flex-col gap-8 sm:gap-12 lg:gap-28  lg:min-h-[80vh] sm:min-h-[80vh] mt-8 sm:mt-16 lg:mt-36">
           <div className="flex sm:items-center">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold font-satoshi">
+            <h1 className="text-4xl sm:text-5xl sm:text-center md:text-6xl lg:text-8xl font-bold font-satoshi">
               hey i&rsquo;m kevin!
             </h1>
           </div>

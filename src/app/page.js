@@ -135,7 +135,7 @@ export default function Home() {
             <ProjectCard
               projectUrl={"https://github.com/klevun7/matchanotes"}
               title={"MatchaNotes"}
-              imageUrl={"/matchanotes2.png"}
+              imageUrl={"/matchanotes.png"}
               description={
                 "A full-stack web app for discovering, reviewing, and searching matcha powders, featuring full-text search and user authentication."
               }

@@ -5,33 +5,49 @@ import { faLinkedin, faGithubSquare } from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
   return (
-    <nav>
-    <div className="flex justify-between h-[100px] items-center text-slate-500 font-bold hover:text-black">
-      <Link href="/">kevincao</Link>
-      <div className="flex gap-2">
-        <Link
-          href={"https://www.linkedin.com/in/kevin-cao7/"}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FontAwesomeIcon
-            icon={faLinkedin}
-            className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 h-[40px] text-blue-500 hover:text-blue-700"
-          />
-        </Link>
-        <Link
-          href={"https://github.com/klevun7"}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FontAwesomeIcon
-            icon={faGithubSquare}
-            className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 h-[40px] text-slate-800 hover:text-black"
-          />
-        </Link>
+    <footer className="bg-slate-50 border-t border-slate-200 mt-20">
+      <div className="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between h-[100px] items-center px-6 lg:px-12 font-satoshi">
+        
+        {/* Logo / Brand */}
+        <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 items-center">
+          <Link 
+            href="/" 
+            className="font-bold text-slate-500 transition-colors duration-300 hover:text-blue-600 text-lg"
+          >
+            kevincao
+          </Link>
+          <span className="text-sm text-slate-400">
+         made with ❤️ by kevin 😗
+          </span>
+        </div>
+
+        {/* Social Icons */}
+        <div className="flex gap-4 mt-4 sm:mt-0">
+          <Link
+            href="https://www.linkedin.com/in/kevin-cao7/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group"
+          >
+            <FontAwesomeIcon
+              icon={faLinkedin}
+              className="h-8 w-8 text-slate-400 transition-all duration-300 group-hover:text-[#0077b5] group-hover:-translate-y-1"
+            />
+          </Link>
+          <Link
+            href="https://github.com/klevun7"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group"
+          >
+            <FontAwesomeIcon
+              icon={faGithubSquare}
+              className="h-8 w-8 text-slate-400 transition-all duration-300 group-hover:text-black group-hover:-translate-y-1"
+            />
+          </Link>
+        </div>
       </div>
-    </div>
-  </nav>
+    </footer>
   );
 };
 

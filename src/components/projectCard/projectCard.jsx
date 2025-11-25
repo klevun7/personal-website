@@ -1,57 +1,92 @@
 "use client";
-import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithubSquare } from "@fortawesome/free-brands-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
-const ProjectCard = ({ title, description, imageUrl, projectUrl }) => {
-  const [isHovered, setIsHovered] = useState(false);
-
+const ProjectCard = ({ 
+  title, 
+  description, 
+  imageUrl, 
+  projectUrl, 
+  repoUrl, 
+  tags = [] 
+}) => {
   return (
-    <div
-      className="relative overflow-hidden rounded-lg shadow-lg cursor-pointer transition ease-out delay-150 hover:-translate-y-1 hover:scale-105 duration-300 w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl h-48 sm:h-56 md:h-64 lg:h-72 xl:h-80"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div className="relative w-full h-full">
+    <div className="group flex flex-col h-full bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-xl hover:border-slate-300 transition-all duration-300 ease-in-out">
+      
+      {/* --- 1. Image Area (Top) --- */}
+      {/* Defined height, image zooms slightly on hover */}
+      <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-100 border-b border-slate-100">
         <Image
           src={imageUrl}
           alt={title}
-          width={800}
-          height={400}
-          className="w-full h-full object-cover transition-opacity duration-300"
-          style={{ opacity: isHovered ? "0.2" : "1" }}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
+      </div>
 
-        <div className="absolute inset-0 flex flex-col justify-between p-8 bg-gradient-to-t from-black/70 to-transparent">
-          <h3 className="text-xl font-extrabold text-slate-700 font-satoshi sm:text-md md:text-lg">
-            {isHovered ? title : null}
-          </h3>
-
-          <div
-            className={`transition-all duration-300 ${isHovered
-                ? "opacity-100 translate-y-0"
-                : "opacity-0 translate-y-4"
-              }`}
-          >
-            <p className="text-white text-xs font-satoshi sm:text-sm md:text-md">
-              {description}
-            </p>
-            <div className="flex justify-end">
-              <Link
-                href={projectUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-2"
+      {/* --- 2. Content Area (Bottom) --- */}
+      <div className="flex flex-col flex-1 p-6">
+        
+        {/* Tags - Minimalist pills */}
+        {tags.length > 0 && (
+          <div className="flex flex-wrap gap-2 mb-4">
+            {tags.slice(0, 10).map((tag, index) => (
+              <span 
+                key={index} 
+                className="px-2.5 py-0.5 text-[11px] font-bold tracking-wide uppercase text-slate-500 bg-slate-100 rounded-md"
               >
-                <FontAwesomeIcon
-                  icon={faGithubSquare}
-                  className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 h-[40px] text-white hover:text-white"
-                />
-              </Link>
-            </div>
+                {tag}
+              </span>
+            ))}
           </div>
+        )}
+
+        {/* Title */}
+        <h3 className="text-xl font-bold font-satoshi text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
+          {title}
+        </h3>
+
+        {/* Description */}
+        <p className="text-sm text-slate-500 leading-relaxed mb-6 line-clamp-3">
+          {description}
+        </p>
+
+        {/* --- 3. Footer / Links (Sticks to bottom) --- */}
+        <div className="mt-auto flex items-center justify-between pt-4 border-t border-slate-100">
+          
+          {/* Live Link with Arrow Animation */}
+          {projectUrl ? (
+            <Link
+              href={projectUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-sm font-bold text-slate-900 hover:text-blue-600 transition-colors"
+            >
+              View Project
+              <FontAwesomeIcon 
+                icon={faArrowRight} 
+                className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-1" 
+              />
+            </Link>
+          ) : (
+            <span className="text-xs text-slate-400 font-medium">Coming Soon</span>
+          )}
+
+          {/* Github Icon */}
+          {repoUrl && (
+            <Link
+              href={repoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-400 hover:text-slate-900 transition-colors"
+            >
+              <FontAwesomeIcon icon={faGithub} className="h-5 w-5" />
+            </Link>
+          )}
         </div>
       </div>
     </div>

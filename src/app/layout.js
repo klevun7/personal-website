@@ -17,12 +17,12 @@ export default function RootLayout({ children }) {
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         </head>
         <body className={inter.className}>
-          <div className=" px-10 mx-10 min-h-screen min-w-screen gap-10 flex flex-col justify-between">
+   
             <Navbar />
             {children}
             <Analytics />
             <Footer />
-          </div>
+
         </body>
       </html>
    

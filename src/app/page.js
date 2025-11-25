@@ -1,177 +1,167 @@
+"use client";
 import Image from "next/image";
-import Chicken from "@/components/chicken/Chicken";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPython,
-  faReact,
-  faLinkedin,
-  faJs,
-  faAws,
-  faGithubSquare,
-} from "@fortawesome/free-brands-svg-icons";
-import { Typewriter } from "nextjs-simple-typewriter";
-import ProjectCard from "@/components/projectCard/projectCard";
-import "./globals.css";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { Typewriter } from "nextjs-simple-typewriter";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faLinkedin, faGithubSquare } from "@fortawesome/free-brands-svg-icons";
+
+// Components
+import Chicken from "@/components/chicken/Chicken";
+import ProjectCard from "@/components/projectCard/projectCard";
 import Skills from "@/components/skills/Skills";
+import "./globals.css";
+import About from "@/components/about/About";
+
+// --- Animations ---
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
 
 export default function Home() {
   return (
-    <div id="home" className="flex flex-col lg:flex-row">
-      <div className="flex flex-1 flex-col gap-6 sm:gap-2 lg:gap-12 px-4 lg:px-0">
-        {/* Hero Section */}
-        <div className="flex flex-col gap-8 sm:gap-12 lg:gap-28  lg:min-h-[80vh] sm:min-h-[80vh] mt-8 sm:mt-16 lg:mt-36">
-          <div className="flex sm:items-center">
-            <h1 className="text-4xl sm:text-5xl sm:text-center md:text-6xl lg:text-8xl font-bold font-satoshi">
-              hey i&rsquo;m kevin!
-            </h1>
-          </div>
+    <main id="home" className="min-h-screen bg-slate-50 selection:bg-blue-100 overflow-x-hidden">
 
-          <div className="flex">
-            <span className="font-satoshi text-lg sm:text-xl md:text-2xl lg:text-3xl text-center lg:text-left">
-              <Typewriter
-                words={[
-                  "aspiring fullstack software developer",
-                  "learning more about cloud computing",
-                  "trying to center a div",
-                  "fried chicken lover",
-                  "currently learning Go",
-                ]}
-                loop={100}
-                cursor
-                cursorStyle="_"
-                typeSpeed={70}
-                deleteSpeed={50}
-                delaySpeed={1000}
-              />
-            </span>
-          </div>
+      <motion.div
+        className="max-w-7xl mx-auto px-6 lg:px-12 py-8 lg:py-0"
+        initial="hidden"
+        animate="visible"
+        variants={staggerContainer}
+      >
+        <section className="flex flex-col lg:flex-row items-center justify-between min-h-[85vh] gap-10 mt-8 lg:mt-0">
 
-          <div className="flex gap-6 lg:gap-10 justify-center lg:justify-start">
-            <Link
-              href={"https://www.linkedin.com/in/kevin-cao7/"}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FontAwesomeIcon
-                icon={faLinkedin}
-                className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 h-[35px] lg:h-[40px] text-blue-500 hover:text-blue-700"
-              />
-            </Link>
-            <Link
-              href={"https://github.com/klevun7"}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <FontAwesomeIcon
-                icon={faGithubSquare}
-                className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 h-[35px] lg:h-[40px] text-slate-800 hover:text-black"
-              />
-            </Link>
-          </div>
-        </div>
 
-        {/* About Section */}
-        <div id="about" className="flex gap-8 lg:gap-10 flex-col items-center">
-          <div className="flex flex-col items-center">
-            <h1 className="font-satoshi text-3xl lg:text-4xl font-bold">About Me</h1>
-          </div>
+          <motion.div variants={fadeInUp} className="flex-1 w-full lg:w-1/2 flex flex-col gap-6 z-10">
+            <div className="space-y-4">
+              <h1 className="text-5xl sm:text-6xl lg:text-8xl font-extrabold font-satoshi text-slate-900 tracking-tight">
+                hey i&rsquo;m <span className="text-blue-600">kevin!</span>
+              </h1>
 
-          <div className="flex flex-col lg:flex-row lg:justify-evenly items-center lg:items-start gap-8 lg:gap-0">
-            <div className="flex">
-              <Image
-                src={"/kevin.jpg"}
-                width={350}
-                height={350}
-                className="rounded-lg hidden lg:block"
-                alt="Kevin's profile picture"
-              />
-            </div>
-            <div className="w-full lg:w-1/2 text-center lg:text-left">
-              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-satoshi">
-                I&apos;m a recent Computer Science and Business graduate from the University of California,
-                Riverside. I&apos;m passionate about fullstack development
-                and I am hoping to expand my knowledge on distributed systems
-                and cloud computing. In my free time I enjoy cooking and trying
-                out new restaurants.
-              </p>
-
-              <div className="flex flex-col sm:flex-row mt-8 lg:mt-10 gap-4 lg:gap-10 items-center justify-center lg:justify-start">
-                <a
-                  href="/resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 p-3 w-full sm:w-auto min-w-[120px] cursor-pointer border-none rounded-md bg-slate-800 text-white hover:bg-blue-700 font-satoshi text-center"
-                >
-                  Resume
-                </a>
-                <a
-                  href="mailto:kevincao5558@gmail.com"
-                  className="inline-block font-satoshi transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 p-3 w-full sm:w-auto min-w-[120px] cursor-pointer border-none rounded-md bg-slate-800 text-white hover:bg-blue-700 text-center"
-                >
-                  Contact me
-                </a>
+              <div className="h-12 flex items-center">
+                <span className="font-satoshi text-xl sm:text-2xl lg:text-3xl text-slate-600 font-medium">
+                  <Typewriter
+                    words={[
+                      "aspiring fullstack developer",
+                      "cloud computing enthusiast",
+                      "trying to center a div",
+                      "fried chicken lover ❤️",
+                      "building with Go & AWS",
+                    ]}
+                    loop={0}
+                    cursor
+                    cursorStyle="|"
+                    typeSpeed={70}
+                    deleteSpeed={50}
+                    delaySpeed={1500}
+                  />
+                </span>
               </div>
             </div>
+
+
+            <div className="flex gap-6 mt-2">
+              <Link
+                href="https://www.linkedin.com/in/kevin-cao7/"
+                target="_blank"
+                className="group"
+              >
+                <FontAwesomeIcon
+                  icon={faLinkedin}
+                  className="h-10 w-10 text-slate-400 transition-all duration-300 group-hover:text-[#0077b5] group-hover:-translate-y-1"
+                />
+              </Link>
+              <Link
+                href="https://github.com/klevun7"
+                target="_blank"
+                className="group"
+              >
+                <FontAwesomeIcon
+                  icon={faGithubSquare}
+                  className="h-10 w-10 text-slate-400 transition-all duration-300 group-hover:text-black group-hover:-translate-y-1"
+                />
+              </Link>
+            </div>
+          </motion.div>
+
+
+          <motion.div
+            variants={fadeInUp}
+            className="hidden lg:flex flex-1 w-full lg:w-1/2 h-[500px] xl:h-[600px] items-center justify-center relative sm:hidden"
+          >
+            <Chicken />
+          </motion.div>
+
+        </section>
+
+        <About />
+
+        <motion.section variants={fadeInUp} className="py-10 ">
+          <Skills />
+        </motion.section>
+
+
+        <motion.section variants={fadeInUp} id="projects" className="py-20 scroll-mt-20">
+          <div className="flex flex-col gap-10">
+            <h2 className="text-3xl font-bold font-satoshi text-slate-900 border-l-4 border-blue-600 pl-4">
+              some of my projects! 😎
+            </h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+              <ProjectCard
+                projectUrl={"https://github.com/klevun7/devlink"}
+                tags={["Go", "Python", "AWS SES", "AWS EC2", "Docker"]}
+                title={"DevLink"}
+                imageUrl={"/sysdia.png"}
+                description={"A platform for new-grads to find job opportunities instantly. Built with a high-performance Go backend and AWS integration."}
+              />
+
+              <ProjectCard
+                projectUrl={"https://matchanotes.vercel.app/"}
+                repoUrl={"https://github.com/klevun7/matchanotes"}
+
+                title={"MatchaNotes"}
+                tags={["Next.js", "TypeScript", "Redis", "PostgreSQL"]}
+                imageUrl={"/matcha.png"}
+                description={"A full-stack community platform for matcha enthusiasts featuring complex search algorithms and secure authentication."}
+              />
+
+              <ProjectCard
+                projectUrl={"https://style-swiper.vercel.app/"}
+                repoUrl={"https://github.com/klevun7/Style-Swiper"}
+                title={"StyleSwiper"}
+                tags={["React", "Firebase", "Jest"]}
+                imageUrl={"/styleswiper.png"}
+                description={"A fashion discovery app featuring a 'swipe-right' mechanic to personalize clothing recommendations."}
+              />
+
+              <ProjectCard
+                projectUrl={"https://github.com/klevun7/sf_proposition_history"}
+                title={"SF Proposition History"}
+                tags={["Next.js", "MySQL", "D3.js", "i18n"]}
+                imageUrl={"/sf3.png"}
+                description={"Interactive data visualization dashboard for historic San Francisco ballot measures with multi-language support."}
+              />
+
+
+              {/* Centered Last Item */}
+
+
+            </div>
           </div>
-        </div>
+        </motion.section>
 
-        {/* Skills Section */}
-        <Skills />
-
-        {/* Projects Section */}
-        <div id="projects"></div>
-        <div className=" lg:m-8 lg:p-4">
-          <h1 className="text-3xl lg:text-4xl font-bold font-satoshi text-center mb-8">Projects</h1>
-          <div className="mt-14 flex flex-col gap-8 items-center px-4">
-            <ProjectCard
-              projectUrl={"https://github.com/klevun7/Style-Swiper"}
-              title={"StyleSwiper"}
-              imageUrl={"/styleswiper.png"}
-              description={
-                "A clothing discovery app with account management and personalized tinder-like swiping to discover new fashion trends"
-              }
-            />
-            <ProjectCard
-              projectUrl={"https://github.com/klevun7/matchanotes"}
-              title={"MatchaNotes"}
-              imageUrl={"/matchanotes2.png"}
-              description={
-                "A full-stack web app for discovering, reviewing, and searching matcha powders, featuring full-text search and user authentication."
-              }
-            />
-            <ProjectCard
-              projectUrl={"https://github.com/klevun7/devlink"}
-              title={"DevLink"}
-              imageUrl={"/sysdia.png"}
-              description={
-                "A platform for new-grads to find job opportunities as soon as they are posted. Built with Go and AWS SES for email notifications."
-              }
-            />
-            <ProjectCard
-              projectUrl={"https://github.com/klevun7/sf_proposition_history"}
-              title={"SF Proposition History"}
-              imageUrl={"/sf3.png"}
-              description={
-                "Historic Ballot Measure data within the city of San Francisco with multi-lingual support and data visualizations"
-              }
-            />
-            <ProjectCard
-              projectUrl={"https://github.com/klevun7/pyElasticSearch"}
-              title={"NBA PyElasticSearch"}
-              imageUrl={"/pyes.png"}
-              description={
-                "Built with Python and Flask, utilizing Elasticsearch for efficient data retrieval and search capabilities on NBA data."
-              }
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* Chicken Component - Hidden on mobile */}
-      <div className="hidden lg:block">
-        <Chicken />
-      </div>
-    </div>
+      </motion.div>
+    </main>
   );
 }

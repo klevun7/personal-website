@@ -1,130 +1,75 @@
+"use client";
+import { useState } from "react";
 import Image from "next/image";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPython,
-  faReact,
-  faJs,
-  faAws,
-} from "@fortawesome/free-brands-svg-icons";
 
 const Skills = () => {
-  return (
-    <div id="skills" className="flex flex-col items-center gap-12 lg:gap-24">
-      <h1 className="text-3xl lg:text-4xl font-bold font-satoshi">Skills</h1>
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [activeFilter, setActiveFilter] = useState("");
 
-      <div className="grid grid-cols-4 lg:grid-rows-2 lg:grid-flow-col gap-10 lg:gap-20 justify-items-center items-center">
-        <Image
-          src={"/icons/go.svg"}
-          width={50}
-          height={50}
-          alt="Go"
-          className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 h-[50px] lg:h-[60px] text-black"
-        />
-        <Image
-          src={"/icons/cpp.svg"}
-          width={50}
-          height={50}
-          alt="C++"
-          className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 h-[50px] lg:h-[60px] text-black"
-        />
-        <Image
-          src={"/icons/python.svg"}
-          width={50}
-          height={50}
-          alt="Python"
-          className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 h-[50px] lg:h-[60px] text-black"
-        />
-        <Image
-          src={"/icons/javascript.svg"}
-          width={50}
-          height={50}
-          alt="JavaScript"
-          className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 h-[50px] lg:h-[60px] text-black"
-        />
-        <Image
-          src={"/icons/react.svg"}
-          width={50}
-          height={50}
-          alt="React"
-          className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 h-[50px] lg:h-[60px] text-black"
-        />
-        <Image
-          src={"/icons/typescript.svg"}
-          width={50}
-          height={50}
-          alt="TypeScript"
-          className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 h-[50px] lg:h-[60px] text-black"
-        />
-        <Image
-          src={"/icons/nextjs.svg"}
-          width={50}
-          height={50}
-          alt="Next.js"
-          className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 h-[50px] lg:h-[60px] text-black"
-        />
-        <Image
-          src={"/icons/nodejs.svg"}
-          width={50}
-          height={50}
-          alt="Node.js"
-          className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 h-[50px] lg:h-[60px] text-black"
-        />
-        <Image
-          src={"/icons/mongodb.svg"}
-          width={50}
-          height={50}
-          alt="MongoDB"
-          className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 h-[50px] lg:h-[60px] text-black"
-        />
-        <Image
-          src={"/icons/redis.svg"}
-          width={50}
-          height={50}
-          alt="Redis"
-          className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 h-[50px] lg:h-[60px] text-black"
-        />
-        <Image
-          src={"/icons/mysql.svg"}
-          width={50}
-          height={50}
-          alt="MySQL"
-          className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 h-[50px] lg:h-[60px] text-black"
-        />
-        <Image
-          src={"/icons/postgres.svg"}
-          width={50}
-          height={50}
-          alt="PostgreSQL"
-          className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 h-[50px] lg:h-[60px] text-black"
-        />
-        <Image
-          src={"/icons/firebase.svg"}
-          width={50}
-          height={50}
-          alt="Firebase"
-          className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 h-[50px] lg:h-[60px] text-black"
-        />
-        <Image
-          src={"/icons/aws.svg"}
-          width={50}
-          height={50}
-          alt="AWS"
-          className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 h-[50px] lg:h-[60px] text-black"
-        />
-        <Image
-          src={"/icons/docker.svg"}
-          width={50}
-          height={50}
-          alt="Docker"
-          className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 h-[50px] lg:h-[60px] text-black"
-        />
-        <Image
-          src={"/icons/tailwindcss.svg"}
-          width={50}
-          height={50}
-          alt="Tailwind CSS"
-          className="transition ease-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 h-[50px] lg:h-[60px] text-black"
-        />
+  const skillIcons = [
+    { name: "Go", src: "/icons/go.svg" },
+    { name: "C++", src: "/icons/cpp.svg" },
+    { name: "Python", src: "/icons/python.svg" },
+    { name: "JavaScript", src: "/icons/javascript.svg" },
+    { name: "React", src: "/icons/react.svg" },
+    { name: "TypeScript", src: "/icons/typescript.svg" },
+    { name: "Next.js", src: "/icons/nextjs.svg" },
+    { name: "Node.js", src: "/icons/nodejs.svg" },
+    { name: "MongoDB", src: "/icons/mongodb.svg" },
+    { name: "Redis", src: "/icons/redis.svg" },
+    { name: "MySQL", src: "/icons/mysql.svg" },
+    { name: "PostgreSQL", src: "/icons/postgres.svg" },
+    { name: "Firebase", src: "/icons/firebase.svg" },
+    { name: "AWS", src: "/icons/aws.svg" },
+    { name: "Docker", src: "/icons/docker.svg" },
+    { name: "Tailwind CSS", src: "/icons/tailwindcss.svg" },
+  ];
+
+  const handleMouseEnter = (index) => {
+    const randomHue = Math.floor(Math.random() * (240 - 180) + 180);
+    const filter = `brightness(0) saturate(100%) invert(50%) sepia(100%) saturate(3000%) hue-rotate(${randomHue}deg) brightness(100%) contrast(100%)`;
+    
+    setActiveFilter(filter);
+    setHoveredIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredIndex(null);
+    setActiveFilter("");
+  };
+
+  return (
+    <div id="skills" className="flex flex-col gap-12 lg:gap-24">
+      <h2 className="text-3xl lg:text-4xl font-bold font-satoshi border-l-4 border-blue-600 pl-4 text-slate-900">
+        some tech i have worked with! 🥸
+      </h2>
+
+      <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 gap-8 lg:gap-12 justify-items-center items-center">
+        {skillIcons.map((skill, index) => (
+          <div
+            key={skill.name}
+            className="group flex flex-col items-center gap-2 relative cursor-pointer"
+            onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={handleMouseLeave}
+          >
+            <div className="relative h-[50px] w-[50px] lg:h-[60px] lg:w-[60px] transition-all duration-300 ease-out group-hover:-translate-y-2 group-hover:scale-110">
+              <Image
+                src={skill.src}
+                fill
+                alt={skill.name}
+                className="object-contain"
+                style={{
+                  transition: "filter 0.3s ease-in-out",
+                  filter: hoveredIndex === index ? activeFilter : "none",
+                }}
+              />
+            </div>
+
+            <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs font-bold text-blue-600 absolute -bottom-6 whitespace-nowrap">
+              {skill.name}
+            </span>
+          </div>
+        ))}
       </div>
     </div>
   );

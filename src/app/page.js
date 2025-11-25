@@ -12,6 +12,7 @@ import Skills from "@/components/skills/Skills";
 import "./globals.css";
 import About from "@/components/about/About";
 import { useLenis } from "@/hooks/useLenis";
+import Experience from "@/components/experience/Experience";
 
 // --- Animations ---
 // 1. Updated Animation Variants to ensure they work when triggered
@@ -128,6 +129,8 @@ export default function Home() {
         >
           <Skills />
         </motion.section>
+
+        <Experience />
 
         {/* --- PROJECTS SECTION --- */}
         <motion.section 

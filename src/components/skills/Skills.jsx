@@ -40,7 +40,7 @@ const Skills = () => {
 
   return (
     <div id="skills" className="flex flex-col gap-12 lg:gap-24">
-      <h2 className="text-3xl lg:text-4xl font-bold font-satoshi border-l-4 border-blue-600 pl-4 text-slate-900">
+      <h2 className="text-3xl  font-bold font-satoshi border-l-4 border-blue-600 pl-4 text-slate-900">
         Skills
       </h2>
 

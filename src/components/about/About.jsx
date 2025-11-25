@@ -64,10 +64,10 @@ const About = () => {
     >
       <div className="flex flex-col gap-12 max-w-6xl mx-auto">
         
-        {/* Minimalist Header */}
+
         <div className="flex items-center gap-4">
-          <h2 className="text-4xl font-bold font-satoshi text-slate-900 border-l-4 border-blue-600 pl-4 tracking-tight ">
-            a little bit about me 😃
+          <h2 className="text-3xl font-bold font-satoshi text-slate-900 border-l-4 border-blue-600 pl-4 tracking-tight ">
+           about me 😃
           </h2>
           <div className="h-px flex-1 bg-slate-200 mt-2"></div>
         </div>

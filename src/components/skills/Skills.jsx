@@ -65,7 +65,7 @@ const Skills = () => {
               />
             </div>
 
-            <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-xs font-bold text-blue-600 absolute -bottom-6 whitespace-nowrap">
+            <span className="opacity-0 group-hover:opacity-100 font-satoshi transition-opacity duration-300 text-xs font-bold text-blue-600 absolute -bottom-6 whitespace-nowrap">
               {skill.name}
             </span>
           </div>

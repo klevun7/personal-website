@@ -15,7 +15,6 @@ import { useLenis } from "@/hooks/useLenis";
 import Experience from "@/components/experience/Experience";
 
 // --- Animations ---
-// 1. Updated Animation Variants to ensure they work when triggered
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
   visible: { 
@@ -30,7 +29,7 @@ const staggerContainer = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.3, // Increased delay so you can actually see the sequence
+      staggerChildren: 0.3,
       delayChildren: 0.2,
     },
   },
@@ -42,7 +41,7 @@ export default function Home() {
   return (
     <main id="home" className="min-h-screen bg-slate-50 selection:bg-blue-100 overflow-x-hidden">
       
-      {/* 2. Main Wrapper: Controls the initial load animation */}
+      {/* Main Wrapper */}
       <motion.div
         className="max-w-7xl mx-auto px-6 lg:px-12 py-8 lg:py-0"
         initial="hidden"
@@ -51,11 +50,11 @@ export default function Home() {
       >
         
         {/* --- HERO SECTION --- */}
-        {/* Changed to motion.section so it participates in the stagger */}
         <motion.section 
           variants={fadeInUp} 
-          className="flex flex-col lg:flex-row items-center justify-between min-h-[85vh] gap-10 mt-8 lg:mt-0"
+          className="flex flex-col lg:flex-row items-center justify-between lg:min-h-[85vh] gap-10 mt-8 lg:mt-0"
         >
+          {/* Left Side: Text */}
           <div className="flex-1 w-full lg:w-1/2 flex flex-col gap-6 z-10">
             <div className="space-y-4">
               <h1 className="text-5xl sm:text-6xl lg:text-8xl font-extrabold font-satoshi text-slate-900 tracking-tight">
@@ -107,19 +106,21 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Right Side: Chicken 
+            1. 'hidden' -> Hides it on Mobile/Tablet (display: none)
+            2. 'lg:flex' -> Shows it ONLY on Large screens (1024px+)
+          */}
           <div className="hidden lg:flex flex-1 w-full lg:w-1/2 h-[500px] xl:h-[600px] items-center justify-center relative">
             <Chicken />
           </div>
         </motion.section>
 
         {/* --- ABOUT SECTION --- */}
-        {/* Note: If <About> has its own motion.div inside, pass variants or wrap it */}
         <motion.div variants={fadeInUp}>
           <About />
         </motion.div>
 
         {/* --- SKILLS SECTION --- */}
-        {/* 3. use 'whileInView' for sections further down so they animate when you scroll to them */}
         <motion.section 
           variants={fadeInUp} 
           initial="hidden"
@@ -130,7 +131,15 @@ export default function Home() {
           <Skills />
         </motion.section>
 
-        <Experience />
+        {/* --- EXPERIENCE SECTION --- */}
+        <motion.div 
+           variants={fadeInUp}
+           initial="hidden"
+           whileInView="visible"
+           viewport={{ once: true, margin: "-100px" }}
+        >
+          <Experience />
+        </motion.div>
 
         {/* --- PROJECTS SECTION --- */}
         <motion.section 
@@ -143,11 +152,10 @@ export default function Home() {
         >
           <div className="flex flex-col gap-10">
             <h2 className="text-3xl font-bold font-satoshi text-slate-900 border-l-4 border-blue-600 pl-4">
-               Projects 
+                Projects 
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-
               <ProjectCard
                 projectUrl={"https://github.com/klevun7/devlink"}
                 tags={["Go", "Python", "AWS SES", "AWS EC2", "Docker"]}

@@ -7,7 +7,26 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+
+
+@layer utilities {
+  @keyframes colorCycle {
+    0%, 100% { color: #2563eb; } 
+    25% { color: #c09bb2; }     
+    50% { color: #d1838a; }     
+    75% { color: #2d5e31; }     
+  }
+
+
+  .animate-color-cycle {
+    animation: colorCycle 6s linear infinite;
+  }
+}
 
 
 @font-face {

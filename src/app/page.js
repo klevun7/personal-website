@@ -58,7 +58,7 @@ export default function Home() {
           <div className="flex-1 w-full lg:w-1/2 flex flex-col gap-6 z-10">
             <div className="space-y-4">
               <h1 className="text-5xl sm:text-6xl lg:text-8xl font-extrabold font-satoshi text-slate-900 tracking-tight">
-                hey i&rsquo;m <span className="text-blue-600">kevin!</span>
+                hey i&rsquo;m <span className="animate-color-cycle px-2">kevin!</span>
               </h1>
 
               <div className="h-12 flex items-center">

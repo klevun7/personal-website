@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { Typewriter } from "nextjs-simple-typewriter";
@@ -12,11 +11,17 @@ import ProjectCard from "@/components/projectCard/projectCard";
 import Skills from "@/components/skills/Skills";
 import "./globals.css";
 import About from "@/components/about/About";
+import { useLenis } from "@/hooks/useLenis";
 
 // --- Animations ---
+// 1. Updated Animation Variants to ensure they work when triggered
 const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  hidden: { opacity: 0, y: 40 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.8, ease: "easeOut" } 
+  },
 };
 
 const staggerContainer = {
@@ -24,25 +29,33 @@ const staggerContainer = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.2,
+      staggerChildren: 0.3, // Increased delay so you can actually see the sequence
+      delayChildren: 0.2,
     },
   },
 };
 
 export default function Home() {
+  useLenis();
+
   return (
     <main id="home" className="min-h-screen bg-slate-50 selection:bg-blue-100 overflow-x-hidden">
-
+      
+      {/* 2. Main Wrapper: Controls the initial load animation */}
       <motion.div
         className="max-w-7xl mx-auto px-6 lg:px-12 py-8 lg:py-0"
         initial="hidden"
         animate="visible"
         variants={staggerContainer}
       >
-        <section className="flex flex-col lg:flex-row items-center justify-between min-h-[85vh] gap-10 mt-8 lg:mt-0">
-
-
-          <motion.div variants={fadeInUp} className="flex-1 w-full lg:w-1/2 flex flex-col gap-6 z-10">
+        
+        {/* --- HERO SECTION --- */}
+        {/* Changed to motion.section so it participates in the stagger */}
+        <motion.section 
+          variants={fadeInUp} 
+          className="flex flex-col lg:flex-row items-center justify-between min-h-[85vh] gap-10 mt-8 lg:mt-0"
+        >
+          <div className="flex-1 w-full lg:w-1/2 flex flex-col gap-6 z-10">
             <div className="space-y-4">
               <h1 className="text-5xl sm:text-6xl lg:text-8xl font-extrabold font-satoshi text-slate-900 tracking-tight">
                 hey i&rsquo;m <span className="text-blue-600">kevin!</span>
@@ -69,7 +82,6 @@ export default function Home() {
               </div>
             </div>
 
-
             <div className="flex gap-6 mt-2">
               <Link
                 href="https://www.linkedin.com/in/kevin-cao7/"
@@ -92,32 +104,47 @@ export default function Home() {
                 />
               </Link>
             </div>
-          </motion.div>
+          </div>
 
-
-          <motion.div
-            variants={fadeInUp}
-            className="hidden lg:flex flex-1 w-full lg:w-1/2 h-[500px] xl:h-[600px] items-center justify-center relative sm:hidden"
-          >
+          <div className="hidden lg:flex flex-1 w-full lg:w-1/2 h-[500px] xl:h-[600px] items-center justify-center relative">
             <Chicken />
-          </motion.div>
+          </div>
+        </motion.section>
 
-        </section>
+        {/* --- ABOUT SECTION --- */}
+        {/* Note: If <About> has its own motion.div inside, pass variants or wrap it */}
+        <motion.div variants={fadeInUp}>
+          <About />
+        </motion.div>
 
-        <About />
-
-        <motion.section variants={fadeInUp} className="py-10 ">
+        {/* --- SKILLS SECTION --- */}
+        {/* 3. use 'whileInView' for sections further down so they animate when you scroll to them */}
+        <motion.section 
+          variants={fadeInUp} 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="py-10"
+        >
           <Skills />
         </motion.section>
 
-
-        <motion.section variants={fadeInUp} id="projects" className="py-20 scroll-mt-20">
+        {/* --- PROJECTS SECTION --- */}
+        <motion.section 
+          id="projects" 
+          className="py-20 scroll-mt-20"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          variants={fadeInUp}
+        >
           <div className="flex flex-col gap-10">
             <h2 className="text-3xl font-bold font-satoshi text-slate-900 border-l-4 border-blue-600 pl-4">
-              some of my projects! 😎
+               Projects 
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+
               <ProjectCard
                 projectUrl={"https://github.com/klevun7/devlink"}
                 tags={["Go", "Python", "AWS SES", "AWS EC2", "Docker"]}
@@ -125,17 +152,14 @@ export default function Home() {
                 imageUrl={"/sysdia.png"}
                 description={"A platform for new-grads to find job opportunities instantly. Built with a high-performance Go backend and AWS integration."}
               />
-
               <ProjectCard
                 projectUrl={"https://matchanotes.vercel.app/"}
                 repoUrl={"https://github.com/klevun7/matchanotes"}
-
                 title={"MatchaNotes"}
                 tags={["Next.js", "TypeScript", "Redis", "PostgreSQL"]}
                 imageUrl={"/matcha.png"}
                 description={"A full-stack community platform for matcha enthusiasts featuring complex search algorithms and secure authentication."}
               />
-
               <ProjectCard
                 projectUrl={"https://style-swiper.vercel.app/"}
                 repoUrl={"https://github.com/klevun7/Style-Swiper"}
@@ -144,7 +168,6 @@ export default function Home() {
                 imageUrl={"/styleswiper.png"}
                 description={"A fashion discovery app featuring a 'swipe-right' mechanic to personalize clothing recommendations."}
               />
-
               <ProjectCard
                 projectUrl={"https://github.com/klevun7/sf_proposition_history"}
                 title={"SF Proposition History"}
@@ -152,11 +175,6 @@ export default function Home() {
                 imageUrl={"/sf3.png"}
                 description={"Interactive data visualization dashboard for historic San Francisco ballot measures with multi-language support."}
               />
-
-
-    
-
-
             </div>
           </div>
         </motion.section>

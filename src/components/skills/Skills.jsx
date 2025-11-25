@@ -41,7 +41,7 @@ const Skills = () => {
   return (
     <div id="skills" className="flex flex-col gap-12 lg:gap-24">
       <h2 className="text-3xl lg:text-4xl font-bold font-satoshi border-l-4 border-blue-600 pl-4 text-slate-900">
-        some tech i have worked with! 🥸
+        Skills
       </h2>
 
       <div className="grid grid-cols-4 sm:grid-cols-6 lg:grid-cols-8 gap-8 lg:gap-12 justify-items-center items-center">

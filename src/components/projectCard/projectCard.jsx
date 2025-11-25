@@ -37,7 +37,7 @@ const ProjectCard = ({
             {tags.slice(0, 10).map((tag, index) => (
               <span 
                 key={index} 
-                className="px-2.5 py-0.5 text-[11px] font-bold tracking-wide uppercase text-slate-500 bg-slate-100 rounded-md"
+                className="px-2.5 py-0.5 text-[11px] font-bold tracking-wide font-satoshi uppercase text-slate-500 bg-slate-100 rounded-md"
               >
                 {tag}
               </span>
@@ -64,7 +64,7 @@ const ProjectCard = ({
               href={projectUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm font-bold text-slate-900 hover:text-blue-600 transition-colors"
+              className="flex items-center font-satoshi gap-2 text-sm font-bold text-slate-900 hover:text-blue-600 transition-colors"
             >
               View Project
               <FontAwesomeIcon 

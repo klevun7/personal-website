@@ -158,6 +158,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
               <ProjectCard
                 projectUrl={"https://github.com/klevun7/devlink"}
+                repoUrl={"https://github.com/klevun7/devlink"}
                 tags={["Go", "Python", "AWS SES", "AWS EC2", "Docker"]}
                 title={"DevLink"}
                 imageUrl={"/sysdia.png"}

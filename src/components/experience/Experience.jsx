@@ -3,6 +3,15 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 const experiences = [
+    {
+    company: "Quantea",
+    role: "Software Engineer Intern",
+    period: "February 2026 - Present",
+    logo: "/icons/quantea_logo.png", 
+    description: [``
+    ],
+     skills: [],
+  },
   {
     company: "Headstarter",
     role: "Software Engineering Fellow",
@@ -16,7 +25,7 @@ const experiences = [
     skills: ["NextJS", "CI/CD", "FireBase", "Stripe API", "GitHub Actions", "TypeScript", "OpenAI API"],
   },
   {
-    company: "University of California, Riverside",
+    company: "ACM @ UCR",
     role: "Frontend Software Engineer",
     period: "December 2023 - April 2024",
     logo: "/icons/acm.webp", 
